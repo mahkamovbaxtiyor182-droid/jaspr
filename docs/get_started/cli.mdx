@@ -41,22 +41,24 @@ jaspr build
 
 This will build the app inside the `build/jaspr/` directory according to your selected [**Rendering Mode**](/get_started/modes):
 
-### Static Mode
+<Tabs groupId="mode">
+  <TabItem label="Static Mode" value="static">
+    Jaspr will start the server entrypoint of your project and pre-render all pages into separate `.html` files.
+    The pre-rendered pages and all files from `web/` are built to the `build/jaspr/` directory, which you can deploy
+    to any static hosting provider.
+  </TabItem>
 
-Jaspr will start the server entrypoint of your project and pre-render all pages into separate `.html` files.
-The pre-rendered pages and all files from `web/` are built to the `build/jaspr/` directory, which you can deploy
-to any static hosting provider.
+  <TabItem label="Server Mode" value="server">
+    Jaspr will build a server runnable as well as static assets from `web/`. For the server runnable you can choose whether
+    to build a standalone executable (default), an aot snapshot or kernel module with the `--target` option.
 
-### Server Mode
+    Your server app will be compiled to `build/jaspr/app<.exe/.aot/.dill>`.
+    Your static files and assets will be built to the `build/jaspr/web` directory, which must be kept alongside the server
+    executable during deployment.
+  </TabItem>
 
-Jaspr will build a server runnable as well as static assets from `web/`. For the server runnable you can choose whether
-to build a standalone executable (default), an aot snapshot or kernel module with the `--target` option.
-
-Your server app will be compiled to `build/jaspr/app<.exe/.aot/.dill>`.
-Your static files and assets will be built to the `build/jaspr/web` directory, which must be kept alongside the server
-executable during deployment.
-
-### Client Mode
-
-All files are built to the `build/jaspr/` directory, which you can deploy to any static hosting provider.
+  <TabItem label="Client Mode" value="client">
+    All files are built to the `build/jaspr/` directory, which you can deploy to any static hosting provider.
+  </TabItem>
+</Tabs>
 
